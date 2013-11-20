@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="A JS website for noobs">
+    <meta name="author" content="Matt Merkes">
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
     <title>NoobJS.org</title>
@@ -15,18 +15,10 @@
 
     <!-- Custom styles for this template -->
     <link href="css/offcanvas.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
+    <script type="text/x-handlebars">
     <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -39,35 +31,122 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#js">JavaScript Bits</a></li>
-            <li><a href="#jquery">jQuery Quandaries</a></li>
-            <li><a href="#underscore">Underscore Dive</a></li>
-            <li><a href="#dictionary">JS Dictionary</a></li>
-            <li><a href="#projects">Dinkie Projects</a></li>
-            <li><a href="#resources">Resources</a></li>
+            {{#link-to 'posts.home' tagName="li"}} 
+              <a href="#">Home </a>
+            {{/link-to}}
+            {{#link-to 'js' tagName="li"}} 
+              <a href="#">JavaScript Bits </a>
+            {{/link-to}}
+            {{#link-to 'jquery' tagName="li"}} 
+              <a href="#">jQuery Quandaries </a>
+            {{/link-to}}
+            {{#link-to 'underscore' tagName="li"}} 
+              <a href="#">Underscore Dive </a>
+            {{/link-to}}
+            {{#link-to 'projects' tagName="li"}} 
+              <a href="#">Dinkie Projects </a>
+            {{/link-to}}
+            {{#link-to 'posts.resources' tagName="li"}} 
+              <a href="#">Resources </a>
+            {{/link-to}}
           </ul>
-        </div><!-- /.nav-collapse -->
-      </div><!-- /.container -->
-    </div><!-- /.navbar -->
+        </div>
+      </div>
+    </div>
 
+    {{outlet}}
+
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="posts">
     <div class="container">
 
       <div class="row row-offcanvas row-offcanvas-right">
 
         <div class="col-xs-12 col-sm-9">
-          <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          </p>
-          <div class="jumbotron">
-            <h3>Welcome to NoobJS.org!</h3>
-            <p>NoobJS.org is dedicated to noobs everywhere trying to reach
-              JavaScript nirvana. We're trying to serve as a creator of new
-              information and as a hub for leveraging existing resources. 
-              Click around and see what you find! However, please bare with us
-              as this website is still under construction.</p>
 
-          </div>
+          {{outlet}}
+        
+        </div>
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <h2>Recent Posts</h2>
+          <ul class="nav nav-pills nav-stacked">
+            {{#each post in controller}}
+              {{#link-to 'post' post tagName="li"}} 
+                <a href="#">{{post.title}}</a>
+              {{/link-to}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Matt Merkes 2013</p>
+      </footer>
+
+    </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="post">
+      <div class="post">
+        <h2><span class="label label-default">{{title}}</span></h2>
+        <div>{{formatMarkdown post_content}}</div>
+        {{#each tag in tags}}
+          <button class="btn btn-info">{{tag}}</button>
+        {{/each}}
+        <p> Created {{formatDate creationDate}}</p>
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="posts/home">
+      <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+      </p>
+      <div class="jumbotron">
+        <h3>Welcome to NoobJS.org!</h3>
+        <p>NoobJS.org is dedicated to noobs everywhere trying to reach
+          JavaScript nirvana. We&#39;re trying to serve as a creator of new
+          information and as a hub for leveraging existing resources. 
+          Click around and see what you find! However, please bare with us
+          as this website is still under construction.</p>
+      </div>
+
+      {{#each post in controller}}
+        <div class="col-6 col-sm-6 col-lg-4 js">
+          <h4>{{#link-to 'post' post}}{{post.title}}{{/link-to}}</h4>
+          <div>{{trimContent post.post_content}}</div>
+          {{#each tag in post.tags}}
+            <button class="btn btn-info">{{tag}}</button>
+          {{/each}}
+          <p> Created {{formatDate post.creationDate}}</p>
+        </div>
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="js">
+      Welcome to the JavaScript page!
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="jquery">
+      Welcome to the jQuery page!
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="underscore">
+      Welcome to the Underscore page!
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="projects">
+      Welcome to the project page!
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="posts/resources">
+      Welcome to the resources page!
+    </script>
+<!--
+    
 
           <div class="row">
             <div class="col-6 col-sm-6 col-lg-4 js">
@@ -75,9 +154,9 @@
               <p>Come peruse JavaScript Bits for digestable morsels of code
                 and the exploration of interesting JS topics.</p>
               <ul class="navbar navbar-stacked">
-                <li><a href="#article1">Article 1</a></li>
-                <li><a href="#article2">Article 2</a></li>
-                <li><a href="#article3">Article 3</a></li>
+                <li><a href="#js/1">Article 1</a></li>
+                <li><a href="#js/2">Article 2</a></li>
+                <li><a href="#js/3">Article 3</a></li>
               </ul>
               <p><a class="btn btn-default" href="#js" role="button">View &raquo;</a></p>
             </div>
@@ -86,22 +165,22 @@
               <p>Check out jQuery Quandaries to dig a little into jQuery methods,
                 play around with some code, and solve problems together.</p>
                 <ul class="navbar navbar-stacked">
-                  <li><a href="#article4">Article 4</a></li>
-                  <li><a href="#article5">Article 5</a></li>
-                  <li><a href="#article6">Article 6</a></li>
+                  <li><a href="#jquery/4">Article 4</a></li>
+                  <li><a href="#jquery/5">Article 5</a></li>
+                  <li><a href="#jquery/6">Article 6</a></li>
                 </ul>
-              <p><a class="btn btn-default" href="#" role="button">View &raquo;</a></p>
+              <p><a class="btn btn-default" href="#jquery" role="button">View &raquo;</a></p>
             </div>
             <div class="col-6 col-sm-6 col-lg-4">
               <h2>Underscore Dive</h2>
               <p>Underscore is a great utility library that make a lot of common
                 tasks easier. Join us to dive deeper into underscore and its methods.</p>
                 <ul class="navbar navbar-stacked">
-                  <li><a href="#article7">Article 7</a></li>
-                  <li><a href="#article8">Article 8</a></li>
-                  <li><a href="#article9">Article 9</a></li>
+                  <li><a href="#underscore/7">Article 7</a></li>
+                  <li><a href="#underscore/8">Article 8</a></li>
+                  <li><a href="#underscore/9">Article 9</a></li>
                 </ul>
-              <p><a class="btn btn-default" href="#" role="button">View &raquo;</a></p>
+              <p><a class="btn btn-default" href="#underscore" role="button">View &raquo;</a></p>
             </div>
             <div class="col-6 col-sm-6 col-lg-4">
               <h2>JS Dictionary</h2>
@@ -109,11 +188,11 @@
                 read how functions are 'first class', or about 'hoisting', and a
                 lot of other terms that aren't very intuitive. Come look for explanations here!</p>
                 <ul class="navbar navbar-stacked">
-                  <li><a href="#word1">Word 1</a></li>
-                  <li><a href="#word2">Word 2</a></li>
-                  <li><a href="#word3">Word 3</a></li>
+                  <li><a href="#dictionary/1">Word 1</a></li>
+                  <li><a href="#dictionary/2">Word 2</a></li>
+                  <li><a href="#dictionary/3">Word 3</a></li>
                 </ul>
-              <p><a class="btn btn-default" href="#" role="button">View &raquo;</a></p>
+              <p><a class="btn btn-default" href="#dictionary" role="button">View &raquo;</a></p>
             </div>
             <div class="col-6 col-sm-6 col-lg-4">
               <h2>Dinkie Projects</h2>
@@ -121,11 +200,11 @@
                 of exercises and dinky little projects you wish were included in
                 the JavaScript book you just bought.</p>
                 <ul class="navbar navbar-stacked">
-                  <li><a href="#project1">Project 1</a></li>
-                  <li><a href="#project2">Project 2</a></li>
-                  <li><a href="#project3">Project 3</a></li>
+                  <li><a href="#projects/1">Project 1</a></li>
+                  <li><a href="#projects/2">Project 2</a></li>
+                  <li><a href="#projects/3">Project 3</a></li>
                 </ul>
-              <p><a class="btn btn-default" href="#" role="button">View &raquo;</a></p>
+              <p><a class="btn btn-default" href="#projects" role="button">View &raquo;</a></p>
             </div>
             <div class="col-6 col-sm-6 col-lg-4">
               <h2>Resources</h2>
@@ -133,46 +212,39 @@
                 if I had found a place with a guide to all of the useful resources
                 out there. Lucky for you, I'm sharing that with you!</p>
                 <ul class="navbar navbar-stacked">
-                  <li><a href="#blogs">Blogs</a></li>
-                  <li><a href="#websites">Websites</a></li>
-                  <li><a href="#books">Books</a></li>
+                  <li><a href="#resources/blogs">Blogs</a></li>
+                  <li><a href="#resources/websites">Websites</a></li>
+                  <li><a href="#resources/books">Books</a></li>
                 </ul>
-              <p><a class="btn btn-default" href="#" role="button">View &raquo;</a></p>
+              <p><a class="btn btn-default" href="#resources" role="button">View &raquo;</a></p>
             </div>
-          </div>
-        </div>
+          </div>-->
+    
+    <!-- dependencies --> 
+    <script src="js/libs/jquery.js"></script>
+    <script src="js/libs/bootstrap.js"></script>
+    <script src="js/libs/handlebars.js"></script>
+    <script src="js/libs/ember.js"></script>
+    <script src="js/libs/ember-data.js"></script>
+    <script src="js/libs/moment.js"></script>
+    <script src="js/libs/showdown.js"></script>
 
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-          </div>
-        </div><!--/span-->
-      </div><!--/row-->
+    <!-- app files -->
+    <script src="js/app.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/models/post.js"></script>
+    <script src="js/helpers/helpers.js"></script>
 
-      <hr>
+    <!-- ROUTES -->
+    <script src="js/router.js"></script>
+    <script src="js/routes/indexRoute.js"></script>
+    <script src="js/routes/postsRoute.js"></script>
+    <script src="js/routes/postRoute.js"></script>
+    <script src="js/routes/homeRoute.js"></script>
 
-      <footer>
-        <p>&copy; Matt Merkes 2013</p>
-      </footer>
+    <!-- CONTROLLERS -->
+    <script src="js/controllers/postsController.js"></script>
 
-    </div><!--/.container-->
-
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/lib/jquery.min.js"></script>
-    <script src="js/lib/bootstrap.min.js"></script>
-    <script src="js/lib/offcanvas.js"></script>
+    
   </body>
 </html>

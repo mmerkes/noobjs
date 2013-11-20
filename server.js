@@ -4,6 +4,20 @@ var application_root = __dirname,
     path = require( 'path' ), //Utilities for dealing with file paths
     mongoose = require( 'mongoose' ); //MongoDB integration
 
+mongoose.connect( 'mongodb://localhost/noobjs_database' );
+
+//Schemas
+var Post = new mongoose.Schema({
+    _id: Number,
+    title: String,
+    post_content: String,
+    tags: [ String ],
+    creationDate: Date
+});
+
+//Models
+var PostModel = mongoose.model( 'Post', Post );
+
 //Create server
 var app = express();
 
@@ -31,6 +45,19 @@ app.listen( port, function() {
     console.log( 'Express server listening on port %d in %s mode', port, app.settings.env );
 });
 
+// get all of the posts
+app.get( '/posts', function( request, response ) {
+    console.log("Client request posts");
+    return PostModel.find( function( err, posts ) {
+        if( !err ) {
+            var pkg = { "posts": posts }
+            console.log( pkg );
+            return response.send( pkg );
+        } else {
+            return console.log( err );
+        }
+    });
+});
 
 
 
