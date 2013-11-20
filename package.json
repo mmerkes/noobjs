@@ -1,6 +1,6 @@
 {
   "name": "noobjs",
-  "version": "0.0.1-3",
+  "version": "0.0.1-11",
   "author": {
     "name": "Matt Merkes",
     "email": "matt.merkes@gmail.com"
@@ -17,7 +17,7 @@
   ],
   "homepage": "http://noobjs.org",
   "scripts": {
-    "start": "node ./server"
+    "start": "node ./server_private"
   },
   "contributors": [],
   "dependencies": {

@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/offcanvas.css" rel="stylesheet">
+    <link href="css/noobjs.css" rel="stylesheet">
   </head>
 
   <body>
@@ -70,14 +71,29 @@
         </div>
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-          <h2>Recent Posts</h2>
-          <ul class="nav nav-pills nav-stacked">
-            {{#each post in controller}}
-              {{#link-to 'post' post tagName="li"}} 
-                <a href="#">{{post.title}}</a>
-              {{/link-to}}
-            {{/each}}
-          </ul>
+          <div class="link_list">
+            <h2>Recent Posts</h2>
+            <ul class="nav nav-pills nav-stacked">
+              {{#each post in controller}}
+                {{#link-to 'post' post tagName="li"}} 
+                  <a href="#">{{post.title}}</a>
+                {{/link-to}}
+              {{/each}}
+            </ul>
+          </div>
+
+          <hr>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">About Me</div>
+            <div class="panel-body">
+              <img src="images/profile_pic.jpg" alt="A handsome devel" class="img-rounded profile"> <br>
+
+              Hi there, my name is Matt Merkes, and I&#39;m a recovering JavaScript
+              noob based out of Seattle, WA. One of my hobbies is pretending
+              to know something about JavaScript.
+            </div>
+          </div>
         </div>
       </div>
 
@@ -145,80 +161,6 @@
     <script type="text/x-handlebars" data-template-name="posts/resources">
       Welcome to the resources page!
     </script>
-<!--
-    
-
-          <div class="row">
-            <div class="col-6 col-sm-6 col-lg-4 js">
-              <h2>JavaScript Bits</h2>
-              <p>Come peruse JavaScript Bits for digestable morsels of code
-                and the exploration of interesting JS topics.</p>
-              <ul class="navbar navbar-stacked">
-                <li><a href="#js/1">Article 1</a></li>
-                <li><a href="#js/2">Article 2</a></li>
-                <li><a href="#js/3">Article 3</a></li>
-              </ul>
-              <p><a class="btn btn-default" href="#js" role="button">View &raquo;</a></p>
-            </div>
-            <div class="col-6 col-sm-6 col-lg-4">
-              <h2>jQuery Quandaries</h2>
-              <p>Check out jQuery Quandaries to dig a little into jQuery methods,
-                play around with some code, and solve problems together.</p>
-                <ul class="navbar navbar-stacked">
-                  <li><a href="#jquery/4">Article 4</a></li>
-                  <li><a href="#jquery/5">Article 5</a></li>
-                  <li><a href="#jquery/6">Article 6</a></li>
-                </ul>
-              <p><a class="btn btn-default" href="#jquery" role="button">View &raquo;</a></p>
-            </div>
-            <div class="col-6 col-sm-6 col-lg-4">
-              <h2>Underscore Dive</h2>
-              <p>Underscore is a great utility library that make a lot of common
-                tasks easier. Join us to dive deeper into underscore and its methods.</p>
-                <ul class="navbar navbar-stacked">
-                  <li><a href="#underscore/7">Article 7</a></li>
-                  <li><a href="#underscore/8">Article 8</a></li>
-                  <li><a href="#underscore/9">Article 9</a></li>
-                </ul>
-              <p><a class="btn btn-default" href="#underscore" role="button">View &raquo;</a></p>
-            </div>
-            <div class="col-6 col-sm-6 col-lg-4">
-              <h2>JS Dictionary</h2>
-              <p>If you're ever read anything about JavaScript, you've probably
-                read how functions are 'first class', or about 'hoisting', and a
-                lot of other terms that aren't very intuitive. Come look for explanations here!</p>
-                <ul class="navbar navbar-stacked">
-                  <li><a href="#dictionary/1">Word 1</a></li>
-                  <li><a href="#dictionary/2">Word 2</a></li>
-                  <li><a href="#dictionary/3">Word 3</a></li>
-                </ul>
-              <p><a class="btn btn-default" href="#dictionary" role="button">View &raquo;</a></p>
-            </div>
-            <div class="col-6 col-sm-6 col-lg-4">
-              <h2>Dinkie Projects</h2>
-              <p>The only way to learn is by doing. Here's a section with a bunch
-                of exercises and dinky little projects you wish were included in
-                the JavaScript book you just bought.</p>
-                <ul class="navbar navbar-stacked">
-                  <li><a href="#projects/1">Project 1</a></li>
-                  <li><a href="#projects/2">Project 2</a></li>
-                  <li><a href="#projects/3">Project 3</a></li>
-                </ul>
-              <p><a class="btn btn-default" href="#projects" role="button">View &raquo;</a></p>
-            </div>
-            <div class="col-6 col-sm-6 col-lg-4">
-              <h2>Resources</h2>
-              <p>When I first started learning JavaScript, I would have LOVED it
-                if I had found a place with a guide to all of the useful resources
-                out there. Lucky for you, I'm sharing that with you!</p>
-                <ul class="navbar navbar-stacked">
-                  <li><a href="#resources/blogs">Blogs</a></li>
-                  <li><a href="#resources/websites">Websites</a></li>
-                  <li><a href="#resources/books">Books</a></li>
-                </ul>
-              <p><a class="btn btn-default" href="#resources" role="button">View &raquo;</a></p>
-            </div>
-          </div>-->
     
     <!-- dependencies --> 
     <script src="js/libs/jquery.js"></script>
