@@ -12,7 +12,9 @@ var Post = new mongoose.Schema({
     title: String,
     post_content: String,
     tags: [ String ],
-    creationDate: Date
+    creationDate: Date,
+    author: String,
+    complete: Boolean
 });
 
 //Models
@@ -48,10 +50,9 @@ app.listen( port, function() {
 // get all of the posts
 app.get( '/posts', function( request, response ) {
     console.log("Client request posts");
-    return PostModel.find( function( err, posts ) {
+    return PostModel.find( { complete: true }, function( err, posts ) {
         if( !err ) {
             var pkg = { "posts": posts }
-            console.log( pkg );
             return response.send( pkg );
         } else {
             return console.log( err );
