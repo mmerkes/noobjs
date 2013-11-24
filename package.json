@@ -1,15 +1,15 @@
 {
   "name": "noobjs",
-  "version": "0.0.1-12",
+  "version": "0.0.1-15",
   "author": {
     "name": "Matt Merkes",
     "email": "matt.merkes@gmail.com"
   },
-  "description": "A very basic node.js helloworld application",
+  "description": "A site for JavaScript Noobs",
   "main": "",
   "repository": {
     "type": "git",
-    "url": "git://github.com/nodeapps/helloworld.git"
+    "url": "git://github.com/mmerkes/noobjs.git"
   },
   "keywords": [
     "noob",
@@ -30,7 +30,7 @@
     "node": ">=0.4"
   },
   "bugs": {
-    "url": "https://github.com/nodeapps/helloworld/issues"
+    "url": "https://github.com/mmerkes/noobjs/issues"
   },
   "licenses": [
     {

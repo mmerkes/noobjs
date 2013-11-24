@@ -1,14 +1,14 @@
-App.JsController = Ember.ArrayController.extend({
+App.UnderscoreController = Ember.ArrayController.extend({
 	sortProperties: ['creationDate'],
 	sortAscending: true,
 
-	jsPosts: function() {
+	underscorePosts: function() {
 		var posts = this.get('model');
 
 		return posts.filter( function( post ) {
 			var tags = post.get('tags');
 
-			if( tags.indexOf('javascript') === 0 )
+			if( tags.indexOf('underscore') === 0 )
 				return true;
 		});
 	}.property('model.@each')

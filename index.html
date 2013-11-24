@@ -141,13 +141,15 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="js">
-      <p>Welcome the JavaScript Bits! Here, you will find a collection of tasty little JavaScript bits to feed your brain. Although this entire website is dedicated to JavaScript and the noobs (and no-noobs) who use it, this is the section to go if you&#39;re looking for plain, vanilla JavaScript. This is for when you&#39;re in the mood to drink your coffee black!</p>
+      <h3>Welcome the JavaScript Bits! </h3>
+      <p>Here, you will find a collection of tasty little JavaScript bits to feed your brain. Although this entire website is dedicated to JavaScript and the noobs (and non-noobs) who use it, this is the section to go if you&#39;re looking for plain, vanilla JavaScript. This is for when you&#39;re in the mood to drink your coffee black!</p>
       <hr>
-      <h3>Recent Action:</h3>
-      {{#each post in controller}}
-        {{#link-to 'post' post}}{{post.title}}{{/link-to}}
-      {{/each}}
-
+      <h3>Explore:</h3>
+      <ul class="nav nav-stacked">
+        {{#each post in jsPosts}}
+          {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
+        {{/each}}
+      </ul>
     </script>
 
     <script type="text/x-handlebars" data-template-name="jquery">
@@ -155,7 +157,16 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="underscore">
-      Welcome to the Underscore page!
+      <h3>Welcome the Underscore Dive! </h3>
+      <p>Want to play around with Underscore? That&#39;s what we&#39;re here for! Come to this page to explore Underscore, called a JavaScript &#39;utility-belt&#39; library. The goal is to ultimately have deeper examples and use cases for each Underscore method to show the coder what it can do.</p>
+      <p>Why Underscore? Well, it has a wide variety of utility methods, and the production version is only 4.9k! Along with its minimalist size, it provides more cross-browser support by giving alternative implementations to ES5 methods such as <em>each</em> and <em>map</em>.</p>
+      <hr>
+      <h3>Explore:</h3>
+      <ul class="nav nav-stacked">
+        {{#each post in underscorePosts}}
+          {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
+        {{/each}}
+      </ul>
     </script>
 
     <script type="text/x-handlebars" data-template-name="projects">
@@ -188,10 +199,13 @@
     <script src="js/routes/postRoute.js"></script>
     <script src="js/routes/homeRoute.js"></script>
     <script src="js/routes/jsRoute.js"></script>
+    <script src="js/routes/underscoreRoute.js"></script>
 
     <!-- CONTROLLERS -->
     <script src="js/controllers/postsController.js"></script>
     <script src="js/controllers/jsController.js"></script>
+    <script src="js/controllers/homeController.js"></script>
+    <script src="js/controllers/underscoreController.js"></script>
 
     
   </body>
