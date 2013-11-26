@@ -1,15 +1,15 @@
 App.JsController = Ember.ArrayController.extend({
 	sortProperties: ['creationDate'],
-	sortAscending: true,
-
+	sortAscending: true
+/*
 	jsPosts: function() {
 		var posts = this.get('model');
 
 		return posts.filter( function( post ) {
 			var tags = post.get('tags');
 
-			if( tags.indexOf('javascript') === 0 )
+			if( tags.indexOf('javascript') !== -1 )
 				return true;
 		});
-	}.property('model.@each')
+	}.property('model.@each') */
 });

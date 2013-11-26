@@ -126,6 +126,8 @@
           information and as a hub for leveraging existing resources. 
           Click around and see what you find! However, please bare with us
           as this website is still under construction.</p>
+        <p>{{#link-to 'posts.all'}}Click here to view all posts
+          {{/link-to}}</p>
       </div>
 
       {{#each post in controller}}
@@ -146,14 +148,23 @@
       <hr>
       <h3>Explore:</h3>
       <ul class="nav nav-stacked">
-        {{#each post in jsPosts}}
+        {{#each post in controller}}
           {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
         {{/each}}
       </ul>
     </script>
 
     <script type="text/x-handlebars" data-template-name="jquery">
-      Welcome to the jQuery page!
+      <h3>Welcome the jQuery Quandaries! </h3>
+      <p>Do you use jQuery? Yeah, that&#39;s kind of a dumb question because it seems really NOT to use jQuery. It&#39;s easy to use, and it makes a whole lot of magic happen without a lot of code. In particular, the jQuery library makes the DOM much easier to wrestle into submission.</p>
+      <p>This section is dedicated to all things jQuery. Whether you&#39;re looking for some examples or deeper explanations of jQuery methods and features, you&#39;ve come to the right place! If there&#39;s not much content yet, please check back shortly.</p>
+      <hr>
+      <h3>Explore:</h3>
+      <ul class="nav nav-stacked">
+        {{#each post in controller}}
+          {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
+        {{/each}}
+      </ul>
     </script>
 
     <script type="text/x-handlebars" data-template-name="underscore">
@@ -163,18 +174,40 @@
       <hr>
       <h3>Explore:</h3>
       <ul class="nav nav-stacked">
-        {{#each post in underscorePosts}}
+        {{#each post in controller}}
           {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
         {{/each}}
       </ul>
     </script>
 
     <script type="text/x-handlebars" data-template-name="projects">
-      Welcome to the project page!
+      <h3>Welcome the Dinky Projects! </h3>
+      <p>As a noob, we all need practice, practice, practice... That&#39;s great that you can read about something, but sometimes you just need to apply it! Dinky Projects is all about practice. Here, we have a set of dinky little projects that aren&#39;t meant to teach you everything about JavaScript, but they&#39;ll at least give you something to practice on.</p>
+      <p>Check out a project to explore features of jQuery, Underscore, or JavaScript in general, and maybe a few other libraries, APIs, or frameworks just to mix it up. At the moment, we&#39;re a little short on content, but I promise you we&#39;re working on it!</p>
+      <hr>
+      <h3>Explore:</h3>
+      <ul class="nav nav-stacked">
+        {{#each post in controller}}
+          {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
+        {{/each}}
+      </ul>
     </script>
 
     <script type="text/x-handlebars" data-template-name="posts/resources">
       Welcome to the resources page!
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="posts/all">
+      <h3>Search by tag</h3>
+      {{input value=filterText placeholder="Search away!"}}
+      <hr>
+      <ul class="nav nav-stacked">
+        {{#each post in controller}}
+          {{#link-to 'post' post tagName="li" class=post.cssFilter}}
+            <a href="#post">{{post.title}}</a>
+          {{/link-to}}
+        {{/each}}
+      </ul>
     </script>
     
     <!-- dependencies --> 
@@ -199,13 +232,19 @@
     <script src="js/routes/postRoute.js"></script>
     <script src="js/routes/homeRoute.js"></script>
     <script src="js/routes/jsRoute.js"></script>
+    <script src="js/routes/jqueryRoute.js"></script>
     <script src="js/routes/underscoreRoute.js"></script>
+    <script src="js/routes/projectsRoute.js"></script>
+    <script src="js/routes/searchRoute.js"></script>
 
     <!-- CONTROLLERS -->
     <script src="js/controllers/postsController.js"></script>
     <script src="js/controllers/jsController.js"></script>
     <script src="js/controllers/homeController.js"></script>
+    <script src="js/controllers/jqueryController.js"></script>
     <script src="js/controllers/underscoreController.js"></script>
+    <script src="js/controllers/projectsController.js"></script>
+    <script src="js/controllers/searchController.js"></script>
 
     
   </body>
