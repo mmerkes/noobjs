@@ -1,16 +1,18 @@
 // Module dependencies.
 var application_root = __dirname,
+    config = require( './private/myConfig.js')
     express = require( 'express' ), //Web framework
     path = require( 'path' ), //Utilities for dealing with file paths
     mongoose = require( 'mongoose' ); //MongoDB integration
 
-mongoose.connect( 'mongodb://localhost/noobjs_database' );
+mongoose.connect( 'mongodb://' + config.user + ':' + config.password + '@ds053428.mongolab.com:53428/noobjs_posts' );
 
 //Schemas
 var Post = new mongoose.Schema({
     _id: Number,
     title: String,
     post_content: String,
+    snippets: String,
     tags: [ String ],
     creationDate: Date,
     author: String,

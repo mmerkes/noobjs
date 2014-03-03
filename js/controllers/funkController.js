@@ -1,4 +1,4 @@
-App.UnderscoreController = Ember.ArrayController.extend({
+App.FunkController = Ember.ArrayController.extend({
 	sortProperties: ['creationDate'],
 	sortAscending: true
 /*

@@ -1,0 +1,45 @@
+NoobJS todo list:
+
+GENERAL:
+1. refactor Ember code
+2. refactor server side code
+3. Place for people to share their projects
+4. Restructure how Ember models work, i.e. have the homepage
+    only pulls the 10 most recents posts so that they don't
+    load all of them each time it loads
+5. Organize the articles in some order that makes sense, i.e.
+    what order you'd recommend that they be read in
+6. Set environment variables
+
+APPEARANCE:
+1. Front Page:
+    a. Change method of getting snippets to get same size.
+    b. Restrict to 6 or 9 posts to show up
+    c. Get to line up properly
+    d. Make recents posts only recent posts
+2. Explore other Bootstrap themes
+
+RESOURCES:
+1. General JS resources
+2. jQuery
+3. Ember
+4. Backbone
+5. Books reviews
+6. Learning tracks
+
+FUNCTIONALITY:
+1. add tag buttons on search
+2. create actual search functionality
+3. Have dinky project samples running
+4. Discussion board
+5. Reviews
+6. Comments
+7. Add difficulty levels
+
+ABOUT ME:
+1. create about me page
+2. Make ready for employers
+
+
+TESTS:
+????

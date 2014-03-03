@@ -6,145 +6,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A JS website for noobs">
     <meta name="author" content="Matt Merkes">
-    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+    <link rel="shortcut icon" href="./images/favicon.png">
 
-    <title>NoobJS.org</title>
+    <title>NOOBjs.org</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Skeleton core CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/layout.css">
 
-    <!-- Custom styles for this template -->
-    <link href="css/offcanvas.css" rel="stylesheet">
-    <link href="css/noobjs.css" rel="stylesheet">
+    <!-- NOOBjs CSS sheets -->
+    <link rel="stylesheet" href="css/noobjs.css">
+    <link href='http://fonts.googleapis.com/css?family=Tenor+Sans' rel='stylesheet' type='text/css'>
+    <!-- Programming font - Inconsolata -->
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
     <script type="text/x-handlebars">
-    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          {{#link-to 'posts.home' class="navbar-brand"}}NoobJS{{/link-to}}
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            {{#link-to 'js' tagName="li"}} 
-              <a href="#js">JavaScript Bits </a>
-            {{/link-to}}
-            {{#link-to 'jquery' tagName="li"}} 
-              <a href="#jquery">jQuery Quandaries </a>
-            {{/link-to}}
-            {{#link-to 'underscore' tagName="li"}} 
-              <a href="#underscore">Underscore Dive </a>
-            {{/link-to}}
-            {{#link-to 'projects' tagName="li"}} 
-              <a href="#projects">Dinkie Projects </a>
-            {{/link-to}}
-            {{#link-to 'posts.resources' tagName="li"}} 
-              <a href="#resources">Resources </a>
-            {{/link-to}}
-          </ul>
-        </div>
+    <div id="header">
+      <div>
+        <img src="./images/icon128.png" class="logo" />
+        <h5>Code of the noobs, by the noobs, for the noobs</h5>
       </div>
+
+      <nav class="clearfix">
+        <ul class="clearfix">
+          {{#link-to 'posts.home' tagName="li"}} 
+            <a href="#home">HOME</a>
+          {{/link-to}}
+          {{#link-to 'js' tagName="li"}} 
+            <a href="#js">jsVANILLA</a>
+          {{/link-to}}
+          {{#link-to 'jquery' tagName="li"}} 
+            <a href="#jquery">jQUERY</a>
+          {{/link-to}}
+          {{#link-to 'funk' tagName="li"}} 
+            <a href="#funk">FUNK</a>
+          {{/link-to}}
+          {{#link-to 'projects' tagName="li"}} 
+            <a href="#projects">DINKY PROJECTS</a>
+          {{/link-to}}
+          {{#link-to 'kitchen_sink' tagName='li'}}
+            <a href="#kitchen_sink">KITCHEN SINK</a>
+          {{/link-to}}
+          {{#link-to 'posts.resources' tagName="li"}} 
+            <a href="#resources">RESOURCES</a>
+          {{/link-to}}
+          {{#link-to 'hire_me' tagName="li" class="right"}} 
+            <a href="#hire_me">HIRE ME</a>
+          {{/link-to}}
+        </ul>
+        {{view App.MenuView}}
+      </nav>
     </div>
 
     {{outlet}}
 
     </script>
 
+    <script type="text/x-handlebars" data-template-name="menu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </script>
+
     <script type="text/x-handlebars" data-template-name="posts">
     <div class="container">
+      <div class="content two-thirds column">
 
-      <div class="row row-offcanvas row-offcanvas-right">
-
-        <div class="col-xs-12 col-sm-9">
-
-          {{outlet}}
-        
-        </div>
-
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-          <div class="link_list">
-            <h2>Recent Posts</h2>
-            <ul class="nav nav-pills nav-stacked">
-              {{#each post in controller}}
-                {{#link-to 'post' post tagName="li"}} 
-                  <a href="#post">{{post.title}}</a>
-                {{/link-to}}
-              {{/each}}
-            </ul>
-          </div>
-
-          <hr>
-
-          <div class="panel panel-primary">
-            <div class="panel-heading">About Me</div>
-            <div class="panel-body">
-              <img src="images/profile_pic.jpg" alt="A handsome devel" class="img-rounded profile"> <br>
-              <p>Hi there, my name is Matt Merkes, and I&#39;m a recovering JavaScript
-              noob based out of Seattle, WA. One of my hobbies is pretending
-              to know something about JavaScript.</p>
-            </div>
-          </div>
-        </div>
+        {{outlet}}
+      
       </div>
 
-      <hr>
+      <div id="recent-articles" class="one-third column">
+        <h3>Recent articles:</h3>
+        <ul>
+          {{#each post in controller}}
+            {{#link-to 'post' post tagName="li"}} 
+              <a href="#post">{{post.title}}</a>
+            {{/link-to}}
+          {{/each}}
+        </ul>
 
-      <footer>
-        <p>&copy; Matt Merkes 2013</p>
-      </footer>
+        <hr>
 
+        <div id="about_me">
+          <h3>About Me</h3>
+          <img src="images/profile_pic.jpg" alt="A handsome devel" class="img-rounded profile" align="right"> 
+          <p>Hi there, my name is Matt Merkes, and I&#39;m a recovering JavaScript noob based out of Seattle, WA. I&#39;m a full-stack JavaScript developer who loves playing around with Node, front-end frameworks, and educating people about JavaScript.</p>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="sixteen columns">
+      <hr />
+      <p class="right">&copy; Matt Merkes</p>
     </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="post">
-      <div class="post">
-        <h2><span class="label label-default">{{title}}</span></h2>
+        <h2>{{title}}</h2>
         <div>{{formatMarkdown post_content}}</div>
-        {{#each tag in tags}}
-          <button class="btn btn-info">{{tag}}</button>
-        {{/each}}
-        <br><br>
+        <div class="tags">
+          {{#each tag in tags}}
+            <span>{{tag}}</span>
+          {{/each}}
+        </div>
         <p> Created {{formatDate creationDate}}</p>
         <p> By {{author}} </p>
-      </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="posts/home">
-      <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-      </p>
-      <div class="jumbotron">
-        <h3>Welcome to NoobJS.org!</h3>
-        <p>NoobJS.org is dedicated to noobs everywhere trying to reach
-          JavaScript nirvana. We&#39;re trying to serve as a creator of new
-          information and as a hub for leveraging existing resources. 
-          Click around and see what you find! However, please bare with us
-          as this website is still under construction.</p>
-        <p>{{#link-to 'posts.all'}}Click here to view all posts
-          {{/link-to}}</p>
+      <div class="content">
+        <h2>Welcome to NOOBjs.org!</h2>
+        <p>Here at NOOBjs, we&#39;re generating content for the everyday noob hoping to become a better JavaScript dveloper. Our hope is that our content will also serve developers beyond noobhood as a refresher of key concepts and an introduction to new concepts and libraries.</p>
       </div>
-
-      {{#each post in controller}}
-        <div class="col-6 col-sm-6 col-lg-4 js">
-          <h4>{{#link-to 'post' post}}{{post.title}}{{/link-to}}</h4>
-          <div>{{trimContent post.post_content}}</div>
-          {{#each tag in post.tags}}
-            <button class="btn btn-info">{{tag}}</button>
-          {{/each}}
-          <p> Created {{formatDate post.creationDate}}</p>
-        </div>
-      {{/each}}
+      <ul id="snippets">
+        {{#each post in limitedContent}}
+          <li>
+            <h5>{{#link-to 'post' post class="link"}}{{post.title}}{{/link-to}}</h5>
+            {{formatMarkdown post.snippet}}
+          </li>
+        {{/each}}
+      </ul>
     </script>
 
     <script type="text/x-handlebars" data-template-name="js">
-      <h3>Welcome the JavaScript Bits! </h3>
-      <p>Here, you will find a collection of tasty little JavaScript bits to feed your brain. Although this entire website is dedicated to JavaScript and the noobs (and non-noobs) who use it, this is the section to go if you&#39;re looking for plain, vanilla JavaScript. This is for when you&#39;re in the mood to drink your coffee black!</p>
+      <h3>Welcome jsVanilla! </h3>
+      <p>Do you like to take your JavaScript straight? Well, this is the page for you! We explore every facet of JavaScript - from objects to callbacks to manipulating the DOM without jQuery. Sounds scary, I know, but read on brave adventurer!</p>
       <hr>
       <h3>Explore:</h3>
       <ul class="nav nav-stacked">
@@ -156,8 +145,8 @@
 
     <script type="text/x-handlebars" data-template-name="jquery">
       <h3>Welcome the jQuery Quandaries! </h3>
-      <p>Do you use jQuery? Yeah, that&#39;s kind of a dumb question because it seems really NOT to use jQuery. It&#39;s easy to use, and it makes a whole lot of magic happen without a lot of code. In particular, the jQuery library makes the DOM much easier to wrestle into submission.</p>
-      <p>This section is dedicated to all things jQuery. Whether you&#39;re looking for some examples or deeper explanations of jQuery methods and features, you&#39;ve come to the right place! If there&#39;s not much content yet, please check back shortly.</p>
+      <p>Do you use jQuery? Yeah, that&#39;s kind of a dumb question because it seems really hard NOT to use jQuery. It&#39;s easy to use, and it makes a whole lot of magic happen without a lot of code. In particular, the jQuery library makes the DOM much easier to wrestle into submission.</p>
+      <p>This section is dedicated to all things jQuery. Whether you&#39;re looking for some examples or deeper explanations of jQuery methods and features, you&#39;ve come to the right place! We&#39;re furiously writing new content, so stay tuned!</p>
       <hr>
       <h3>Explore:</h3>
       <ul class="nav nav-stacked">
@@ -167,10 +156,10 @@
       </ul>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="underscore">
-      <h3>Welcome the Underscore Dive! </h3>
-      <p>Want to play around with Underscore? That&#39;s what we&#39;re here for! Come to this page to explore Underscore, called a JavaScript &#39;utility-belt&#39; library. The goal is to ultimately have deeper examples and use cases for each Underscore method to show the coder what it can do.</p>
-      <p>Why Underscore? Well, it has a wide variety of utility methods, and the production version is only 4.9k! Along with its minimalist size, it provides more cross-browser support by giving alternative implementations to ES5 methods such as <em>each</em> and <em>map</em>.</p>
+    <script type="text/x-handlebars" data-template-name="funk">
+      <h3>Welcome NOOBjs Funk!</h3>
+      <p>Do you like to get your funky on? At NOOBjs, we like to get funky all the time! We also like to do functional programming. Functional programming breaks complicated problems into small pieces, and isolates the problem to avoid side effects.</p>
+      <p>If you&#39;ve ever played around with the <a href="http://underscorejs.org">Underscore library</a>, you&#39;ve experienced a functional library. It&#39;s considered a JavaScript utility-belt library, and it does a bunch of cool things that we all wish was in the JavaScript core library. For educational purposes, We&#39;ve created a library called <a href="https://github.com/mmerkes/noobjs_funk">NOOBjs Funk</a>, which is essentially a clone-from-scratch of the Underscore library. A series of articles will be written on the process of creating these methods, and the goal is to create a readable library for your everyday noob to understand.</p>
       <hr>
       <h3>Explore:</h3>
       <ul class="nav nav-stacked">
@@ -181,9 +170,9 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="projects">
-      <h3>Welcome the Dinky Projects! </h3>
-      <p>As a noob, we all need practice, practice, practice... That&#39;s great that you can read about something, but sometimes you just need to apply it! Dinky Projects is all about practice. Here, we have a set of dinky little projects that aren&#39;t meant to teach you everything about JavaScript, but they&#39;ll at least give you something to practice on.</p>
-      <p>Check out a project to explore features of jQuery, Underscore, or JavaScript in general, and maybe a few other libraries, APIs, or frameworks just to mix it up. At the moment, we&#39;re a little short on content, but I promise you we&#39;re working on it!</p>
+      <h3>Welcome the Dinky Little Projects! </h3>
+      <p>As a noob, we all need practice, practice, practice... That&#39;s great that you can read about something, but sometimes you just need to apply it! Dinky Little Projects is all about practice. Here, we have a set of dinky little projects that aren&#39;t meant to teach you everything about JavaScript, but they&#39;ll at least give you something to practice on.</p>
+      <p>Check out a project to explore features of jQuery, Underscore, or JavaScript in general, and maybe a few other libraries, APIs, or frameworks just to mix it up. Legions of mice are working furiously at generating new content, so stay tuned for more Dinky Little Projects!</p>
       <hr>
       <h3>Explore:</h3>
       <ul class="nav nav-stacked">
@@ -191,6 +180,43 @@
           {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
         {{/each}}
       </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="kitchen_sink">
+      <h3>Welcome the Kitchen Sink! </h3>
+      <p>Over at the Kitchen Sink, you&#39;ll find all of the stragglers. As a JavaScript developer, you need to use all manner of tools to get your job done. Web hosting services, HTTP routes, GIT, and tons of other tools or anything related to development.</p>
+      <p>Anything that doesn&#39;t have a home anywhere else will be here. Check it out!</p>
+      <hr>
+      <h3>Explore:</h3>
+      <ul class="nav nav-stacked">
+        {{#each post in controller}}
+          {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
+        {{/each}}
+      </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="hire_me">
+      <h3>Looking for a JavaScript developer?</h3>
+      <p>If you&#39;re looking for a full-stack JavaScript developer, you&#39;ve come to the right place. I&#39;m currently available for contracting and full-time employment. I have experience with the following technologies:</p>
+      <div id="hire_me">
+        <ul>
+          <li>Node.js</li>
+          <li>Ember.js</li>
+          <li>Handlebars.js</li>
+          <li>Backbone.js</li>
+          <li>Grunt</li>
+          <li>MongoDB</li>
+          <li>PostgreSQL</li>
+          <li>And much more...</li>
+        </ul>
+        <p>Feel free to contact me for more information and check on my online presence:</p>
+        <ul>
+          <li><a href="http://www.linkedin.com/pub/matt-merkes/45/4ab/564">LinkedIn</a></li>
+          <li><a href="https://twitter.com/mattmerkes">Twitter</a></li>
+          <li><a href="https://github.com/mmerkes">GitHub</a></li>
+          <li><a href="http://stackoverflow.com/users/2802626/emptyarsenal">Stack Overflow</a></li>
+        </ul>
+      </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="posts/resources">
@@ -233,7 +259,8 @@
     <script src="js/routes/homeRoute.js"></script>
     <script src="js/routes/jsRoute.js"></script>
     <script src="js/routes/jqueryRoute.js"></script>
-    <script src="js/routes/underscoreRoute.js"></script>
+    <script src="js/routes/funkRoute.js"></script>
+    <script src="js/routes/kitchen_sinkRoute.js"></script>
     <script src="js/routes/projectsRoute.js"></script>
     <script src="js/routes/searchRoute.js"></script>
 
@@ -242,10 +269,12 @@
     <script src="js/controllers/jsController.js"></script>
     <script src="js/controllers/homeController.js"></script>
     <script src="js/controllers/jqueryController.js"></script>
-    <script src="js/controllers/underscoreController.js"></script>
+    <script src="js/controllers/funkController.js"></script>
+    <script src="js/controllers/kitchen_sinkController.js"></script>
     <script src="js/controllers/projectsController.js"></script>
     <script src="js/controllers/searchController.js"></script>
 
-    
+    <!-- VIEWS -->
+    <script src="js/views/menuView.js"></script>
   </body>
 </html>

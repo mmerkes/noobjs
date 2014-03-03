@@ -17,3 +17,4 @@ Ember.Handlebars.helper('trimContent', function(post_content) {
 
 // Limit the amount of results to iterate through, yet behave like {{#each}}
 // http://stackoverflow.com/questions/10377700/limit-results-of-each-in-handlebars-js
+
