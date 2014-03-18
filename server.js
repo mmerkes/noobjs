@@ -5,7 +5,7 @@ var application_root = __dirname,
     path = require( 'path' ), //Utilities for dealing with file paths
     mongoose = require( 'mongoose' ); //MongoDB integration
 
-mongoose.connect( 'mongodb://' + config.user + ':' + config.password + '@ds053428.mongolab.com:53428/noobjs_posts' );
+mongoose.connect( 'mongodb://' + process.env.user + ':' + process.env.password + '@ds053428.mongolab.com:53428/noobjs_posts' );
 
 //Schemas
 var Post = new mongoose.Schema({
