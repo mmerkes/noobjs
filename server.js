@@ -1,6 +1,5 @@
 // Module dependencies.
 var application_root = __dirname,
-    config = require( './private/myConfig.js')
     express = require( 'express' ), //Web framework
     path = require( 'path' ), //Utilities for dealing with file paths
     mongoose = require( 'mongoose' ); //MongoDB integration
