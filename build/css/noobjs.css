@@ -332,7 +332,10 @@ h2, h3 {
   font-size: .75em;
   float: left;
   margin-left: .25em;
-  width: 100%;
+  width: 48%;
+  height: 200px;
+  min-width: 250px;
+  overflow: hidden;
 }
 
 #snippets li h5 {

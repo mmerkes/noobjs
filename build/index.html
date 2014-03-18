@@ -80,12 +80,6 @@
       </div>
 
       <div id="recent-articles" class="one-third column">
-      <div id="about_me">
-          <h3>About Me</h3>
-          <img src="images/profile_pic.jpg" alt="A handsome devel" class="img-rounded profile" align="right"> 
-          <p>Hi there, my name is Matt Merkes, and I&#39;m a recovering JavaScript noob based out of Seattle, WA. I&#39;m a full-stack JavaScript developer who loves playing around with Node, front-end frameworks, and educating people about JavaScript.</p>
-        </div>
-        <hr>
         <h3>Recent articles:</h3>
         <ul>
           {{#each post in controller}}
@@ -93,7 +87,15 @@
               <a href="#post">{{post.title}}</a>
             {{/link-to}}
           {{/each}}
-        </ul>  
+        </ul>
+
+        <hr>
+
+        <div id="about_me">
+          <h3>About Me</h3>
+          <img src="images/profile_pic.jpg" alt="A handsome devel" class="img-rounded profile" align="right"> 
+          <p>Hi there, my name is Matt Merkes, and I&#39;m a recovering JavaScript noob based out of Seattle, WA. I&#39;m a full-stack JavaScript developer who loves playing around with Node, front-end frameworks, and educating people about JavaScript.</p>
+        </div>
       </div>
     </div>
     <div id="footer" class="sixteen columns">
@@ -117,15 +119,12 @@
     <script type="text/x-handlebars" data-template-name="posts/home">
       <div class="content">
         <h2>Welcome to NOOBjs.org!</h2>
-        <p>Here at NOOBjs, we&#39;re generating content for the everyday noob hoping to become a better JavaScript developer. Becoming a full-blown developer is HARD - we understand. There&#39;s a lot to learn, and while there are many resources available, where do you start? You start here.</p>
-
-        <p>Our hope is to not only help eager noobs gain sweet skills and make rockstar web apps, but we write our content to also serve developers beyond noobhood as a refresher of key concepts and an introduction to new concepts and libraries. We grow with you!</p>
+        <p>Here at NOOBjs, we&#39;re generating content for the everyday noob hoping to become a better JavaScript dveloper. Our hope is that our content will also serve developers beyond noobhood as a refresher of key concepts and an introduction to new concepts and libraries.</p>
       </div>
-      <hr>
       <ul id="snippets">
         {{#each post in limitedContent}}
           <li>
-            <h3>{{#link-to 'post' post class="link"}}{{post.title}}{{/link-to}}</h3>
+            <h5>{{#link-to 'post' post class="link"}}{{post.title}}{{/link-to}}</h5>
             {{formatMarkdown post.snippet}}
           </li>
         {{/each}}
@@ -133,7 +132,7 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="js">
-      <h3>Welcome jsVanilla! </h3>
+      <h3>Welcome to jsVanilla! </h3>
       <p>Do you like to take your JavaScript straight? Well, this is the page for you! We explore every facet of JavaScript - from objects to callbacks to manipulating the DOM without jQuery. Sounds scary, I know, but read on brave adventurer!</p>
       <hr>
       <h3>Explore:</h3>
@@ -145,7 +144,7 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="jquery">
-      <h3>Welcome the jQuery Quandaries! </h3>
+      <h3>Welcome to jQuery Quandaries! </h3>
       <p>Do you use jQuery? Yeah, that&#39;s kind of a dumb question because it seems really hard NOT to use jQuery. It&#39;s easy to use, and it makes a whole lot of magic happen without a lot of code. In particular, the jQuery library makes the DOM much easier to wrestle into submission.</p>
       <p>This section is dedicated to all things jQuery. Whether you&#39;re looking for some examples or deeper explanations of jQuery methods and features, you&#39;ve come to the right place! We&#39;re furiously writing new content, so stay tuned!</p>
       <hr>
@@ -158,7 +157,7 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="funk">
-      <h3>Welcome NOOBjs Funk!</h3>
+      <h3>Welcome to NOOBjs Funk!</h3>
       <p>Do you like to get your funky on? At NOOBjs, we like to get funky all the time! We also like to do functional programming. Functional programming breaks complicated problems into small pieces, and isolates the problem to avoid side effects.</p>
       <p>If you&#39;ve ever played around with the <a href="http://underscorejs.org">Underscore library</a>, you&#39;ve experienced a functional library. It&#39;s considered a JavaScript utility-belt library, and it does a bunch of cool things that we all wish was in the JavaScript core library. For educational purposes, We&#39;ve created a library called <a href="https://github.com/mmerkes/noobjs_funk">NOOBjs Funk</a>, which is essentially a clone-from-scratch of the Underscore library. A series of articles will be written on the process of creating these methods, and the goal is to create a readable library for your everyday noob to understand.</p>
       <hr>
@@ -171,7 +170,7 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="projects">
-      <h3>Welcome the Dinky Little Projects! </h3>
+      <h3>Welcome to Dinky Little Projects! </h3>
       <p>As a noob, we all need practice, practice, practice... That&#39;s great that you can read about something, but sometimes you just need to apply it! Dinky Little Projects is all about practice. Here, we have a set of dinky little projects that aren&#39;t meant to teach you everything about JavaScript, but they&#39;ll at least give you something to practice on.</p>
       <p>Check out a project to explore features of jQuery, Underscore, or JavaScript in general, and maybe a few other libraries, APIs, or frameworks just to mix it up. Legions of mice are working furiously at generating new content, so stay tuned for more Dinky Little Projects!</p>
       <hr>
@@ -184,7 +183,7 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="kitchen_sink">
-      <h3>Welcome the Kitchen Sink! </h3>
+      <h3>Welcome to the Kitchen Sink! </h3>
       <p>Over at the Kitchen Sink, you&#39;ll find all of the stragglers. As a JavaScript developer, you need to use all manner of tools to get your job done. Web hosting services, HTTP routes, GIT, and tons of other tools or anything related to development.</p>
       <p>Anything that doesn&#39;t have a home anywhere else will be here. Check it out!</p>
       <hr>
