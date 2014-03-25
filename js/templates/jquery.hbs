@@ -1,0 +1,10 @@
+<h3>Welcome the jQuery Quandaries! </h3>
+<p>Do you use jQuery? Yeah, that&#39;s kind of a dumb question because it seems really hard NOT to use jQuery. It&#39;s easy to use, and it makes a whole lot of magic happen without a lot of code. In particular, the jQuery library makes the DOM much easier to wrestle into submission.</p>
+<p>This section is dedicated to all things jQuery. Whether you&#39;re looking for some examples or deeper explanations of jQuery methods and features, you&#39;ve come to the right place! We&#39;re furiously writing new content, so stay tuned!</p>
+<hr>
+<h3>Explore:</h3>
+<ul class="nav nav-stacked">
+  {{#each post in controller}}
+    {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
+  {{/each}}
+</ul>

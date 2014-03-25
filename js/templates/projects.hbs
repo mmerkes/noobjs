@@ -1,0 +1,10 @@
+<h3>Welcome the Dinky Little Projects! </h3>
+<p>As a noob, we all need practice, practice, practice... That&#39;s great that you can read about something, but sometimes you just need to apply it! Dinky Little Projects is all about practice. Here, we have a set of dinky little projects that aren&#39;t meant to teach you everything about JavaScript, but they&#39;ll at least give you something to practice on.</p>
+<p>Check out a project to explore features of jQuery, Underscore, or JavaScript in general, and maybe a few other libraries, APIs, or frameworks just to mix it up. Legions of mice are working furiously at generating new content, so stay tuned for more Dinky Little Projects!</p>
+<hr>
+<h3>Explore:</h3>
+<ul class="nav nav-stacked">
+  {{#each post in controller}}
+    {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
+  {{/each}}
+</ul>

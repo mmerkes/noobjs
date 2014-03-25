@@ -1,11 +1,10 @@
 // Module dependencies.
 var application_root = __dirname,
-    config = require( './private/myConfig.js')
     express = require( 'express' ), //Web framework
     path = require( 'path' ), //Utilities for dealing with file paths
     mongoose = require( 'mongoose' ); //MongoDB integration
 
-mongoose.connect( 'mongodb://' + config.user + ':' + config.password + '@ds053428.mongolab.com:53428/noobjs_posts' );
+mongoose.connect( 'mongodb://' + process.env.MONGOU + ':' + process.env.MONGOP + '@' + process.env.MONGOURL );
 
 //Schemas
 var Post = new mongoose.Schema({

@@ -1,0 +1,9 @@
+<h3>Welcome jsVanilla! </h3>
+<p>Do you like to take your JavaScript straight? Well, this is the page for you! We explore every facet of JavaScript - from objects to callbacks to manipulating the DOM without jQuery. Sounds scary, I know, but read on brave adventurer!</p>
+<hr>
+<h3>Explore:</h3>
+<ul class="nav nav-stacked">
+  {{#each post in controller}}
+    {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
+  {{/each}}
+</ul>

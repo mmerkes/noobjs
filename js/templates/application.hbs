@@ -1,0 +1,38 @@
+<div id="header">
+<div>
+  <img src="./images/icon128.png" class="logo" />
+  <h5>Code of the noobs, by the noobs, for the noobs</h5>
+</div>
+
+<nav class="clearfix">
+  <ul class="clearfix">
+    {{#link-to 'posts.home' tagName="li"}} 
+      <a href="#home">HOME</a>
+    {{/link-to}}
+    {{#link-to 'js' tagName="li"}} 
+      <a href="#js">jsVANILLA</a>
+    {{/link-to}}
+    {{#link-to 'jquery' tagName="li"}} 
+      <a href="#jquery">jQUERY</a>
+    {{/link-to}}
+    {{#link-to 'funk' tagName="li"}} 
+      <a href="#funk">FUNK</a>
+    {{/link-to}}
+    {{#link-to 'projects' tagName="li"}} 
+      <a href="#projects">DINKY PROJECTS</a>
+    {{/link-to}}
+    {{#link-to 'kitchen_sink' tagName='li'}}
+      <a href="#kitchen_sink">KITCHEN SINK</a>
+    {{/link-to}}
+    {{#link-to 'posts.resources' tagName="li"}} 
+      <a href="#resources">RESOURCES</a>
+    {{/link-to}}
+    {{#link-to 'hire_me' tagName="li" class="right"}} 
+      <a href="#hire_me">HIRE ME</a>
+    {{/link-to}}
+  </ul>
+  {{view App.MenuView}}
+</nav>
+</div>
+
+{{outlet}}

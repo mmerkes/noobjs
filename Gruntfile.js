@@ -4,52 +4,89 @@ module.exports = function( grunt ) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    // Cleans the build build directory
-    clean: {
-      build: {
-        src: [ 'build' ]
+    concat: {
+      options: {
+        separator: ';'
       },
-    },
-
-    copy: {
-      all: {
-        src: ['js/**/*.js', 
-              'index.html', 
-              'images/**/*', 
-              'css/**/*'],
-        dest: 'build/'
+      dist: {
+        src: ["js/libs/jquery.js",
+              "js/libs/bootstrap.js",
+              "js/libs/handlebars.js",
+              "js/libs/ember.js",
+              "js/libs/ember-data.js",
+              "js/libs/moment.js",
+              "js/libs/showdown.js",
+              "js/libs/prettify.js",
+              "js/app.js",
+              "js/store.js",
+              "js/models/post.js",
+              "js/helpers/helpers.js",
+              "js/router.js",
+              "js/routes/*.js",
+              "js/controllers/*.js",
+              "js/templates.js",
+              "js/views/*.js"],
+        dest: 'dist/built.js'
       }
     },
 
-    // Lint the files
-    jshint: {
+    uglify: {
       options: {
-        curly: true,
-        eqeqeq: true,
-        eqnull: true,
-        globals: {
-          module: true,
-          console: true
-        }
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
       },
-      files: ['js/controllers/*.js', 
-              'js/helpers/*.js', 
-              'js/models/*.js', 
-              'js/routes/*.js', 
-              'js/views/*.js', 
-              'js/*.js']
+      dist: {
+        files: {
+          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
+    },
+
+    jshint: {
+      files: ['Gruntfile.js', 'server.js', 'js/**/*/.js'],
+
+      options: {
+        globals: {
+          jQuery: true,
+          console: true,
+          module: true
+        }
+      }
+    },
+
+    watch: {
+      files: ['<%= jshint.files %>'],
+      tasks: ['build']
+    },
+
+    clean: {
+      build: {
+        src: ['dist', 'dist']
+      }
+    },
+
+    emberTemplates: {
+      compile: {
+        options: {
+          templateBasePath: /js\/templates\//
+        },
+        files: {
+          'js/templates.js': 'js/templates/**/*.hbs'
+        }
+      }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-ember-templates');
 
-  grunt.registerTask(
-    'build', 
-    'Compiles all of the assets and copies the files to the build directory.', 
-    [ 'clean', 'copy' ]
-  );
+  grunt.registerTask('build', ['clean', 'emberTemplates', 'concat', 'uglify']);
+};
 
-  grunt.registerTask('default', ['clean', 'copy', 'jshint']);
-}
+
+
+
+

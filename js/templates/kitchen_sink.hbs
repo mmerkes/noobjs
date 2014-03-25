@@ -1,0 +1,10 @@
+<h3>Welcome the Kitchen Sink! </h3>
+<p>Over at the Kitchen Sink, you&#39;ll find all of the stragglers. As a JavaScript developer, you need to use all manner of tools to get your job done. Web hosting services, HTTP routes, GIT, and tons of other tools or anything related to development.</p>
+<p>Anything that doesn&#39;t have a home anywhere else will be here. Check it out!</p>
+<hr>
+<h3>Explore:</h3>
+<ul class="nav nav-stacked">
+  {{#each post in controller}}
+    {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
+  {{/each}}
+</ul>

@@ -1,0 +1,9 @@
+<h2>{{title}}</h2>
+<div>{{formatMarkdown post_content}}</div>
+<div class="tags">
+  {{#each tag in tags}}
+    <span>{{tag}}</span>
+  {{/each}}
+</div>
+<p> Created {{formatDate creationDate}}</p>
+<p> By {{author}} </p>

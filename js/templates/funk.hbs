@@ -1,0 +1,10 @@
+<h3>Welcome NOOBjs Funk!</h3>
+<p>Do you like to get your funky on? At NOOBjs, we like to get funky all the time! We also like to do functional programming. Functional programming breaks complicated problems into small pieces, and isolates the problem to avoid side effects.</p>
+<p>If you&#39;ve ever played around with the <a href="http://underscorejs.org">Underscore library</a>, you&#39;ve experienced a functional library. It&#39;s considered a JavaScript utility-belt library, and it does a bunch of cool things that we all wish was in the JavaScript core library. For educational purposes, We&#39;ve created a library called <a href="https://github.com/mmerkes/noobjs_funk">NOOBjs Funk</a>, which is essentially a clone-from-scratch of the Underscore library. A series of articles will be written on the process of creating these methods, and the goal is to create a readable library for your everyday noob to understand.</p>
+<hr>
+<h3>Explore:</h3>
+<ul class="nav nav-stacked">
+  {{#each post in controller}}
+    {{#link-to 'post' post tagName="li"}}<a href="#post">{{post.title}}</a>{{/link-to}}
+  {{/each}}
+</ul>

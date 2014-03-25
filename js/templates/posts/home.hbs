@@ -1,0 +1,15 @@
+<div class="content">
+<h2>Welcome to NOOBjs.org!</h2>
+<p>Here at NOOBjs, we&#39;re generating content for the everyday noob hoping to become a better JavaScript developer. Becoming a full-blown developer is HARD - we understand. There&#39;s a lot to learn, and while there are many resources available, where do you start? You start here.</p>
+
+<p>Our hope is to not only help eager noobs gain sweet skills and make rockstar web apps, but we write our content to also serve developers beyond noobhood as a refresher of key concepts and an introduction to new concepts and libraries. We grow with you!</p>
+</div>
+<hr>
+<ul id="snippets">
+{{#each post in limitedContent}}
+  <li>
+    <h3>{{#link-to 'post' post class="link"}}{{post.title}}{{/link-to}}</h3>
+    {{formatMarkdown post.snippet}}
+  </li>
+{{/each}}
+</ul>

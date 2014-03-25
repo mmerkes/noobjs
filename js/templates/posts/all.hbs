@@ -1,0 +1,10 @@
+<h3>Search by tag</h3>
+{{input value=filterText placeholder="Search away!"}}
+<hr>
+<ul class="nav nav-stacked">
+  {{#each post in controller}}
+    {{#link-to 'post' post tagName="li" class=post.cssFilter}}
+      <a href="#post">{{post.title}}</a>
+    {{/link-to}}
+  {{/each}}
+</ul>
