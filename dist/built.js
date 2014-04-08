@@ -51064,7 +51064,7 @@ function program15(depth0,data) {
   data.buffer.push(" \n      <a href=\"#hire_me\">HIRE ME</a>\n    ");
   }
 
-  data.buffer.push("<div id=\"header\">\n<div>\n  <img src=\"./images/icon128.png\" class=\"logo\" />\n  <h5>Code of the noobs, by the noobs, for the noobs</h5>\n</div>\n\n<nav class=\"clearfix\">\n  <ul class=\"clearfix\">\n    ");
+  data.buffer.push("<div id=\"header\">\n<div>\n  <img src=\"./images/icon128.png\" class=\"logo\" />\n  <h5>Being a noob is hard. We're here to help!</h5>\n</div>\n\n<nav class=\"clearfix\">\n  <ul class=\"clearfix\">\n    ");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
     'tagName': ("li")
   },hashTypes:{'tagName': "STRING"},hashContexts:{'tagName': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "posts.home", options) : helperMissing.call(depth0, "link-to", "posts.home", options));
@@ -51333,7 +51333,7 @@ function program2(depth0,data) {
   data.buffer.push("<div class=\"container\">\n<div class=\"content two-thirds column\">\n\n  ");
   stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n\n</div>\n\n<div id=\"recent-articles\" class=\"one-third column\">\n<div id=\"about_me\">\n    <h3>About Me</h3>\n    <img src=\"images/profile_pic.jpg\" alt=\"A handsome devel\" class=\"img-rounded profile\" align=\"right\"> \n    <p>Hi there, my name is Matt Merkes, and I&#39;m a recovering JavaScript noob based out of Seattle, WA. I&#39;m a full-stack JavaScript developer who loves playing around with Node, front-end frameworks, and educating people about JavaScript.</p>\n  </div>\n  <hr>\n  <h3>Recent articles:</h3>\n  <ul>\n    ");
+  data.buffer.push("\n\n</div>\n\n<div id=\"recent-articles\" class=\"one-third column\">\n<div id=\"about_me\">\n    <h3>About Me</h3>\n    <img src=\"images/profile_pic.jpg\" alt=\"A handsome devel\" class=\"img-rounded profile\" align=\"right\"> \n    <p>Hi there, my name is Matt Merkes, and I&#39;m a full-stack JavaScript developer who loves playing around with Node, front-end frameworks, and educating people about JavaScript. I'm based out of Seattle, WA, and I have a soft spot in my heart for the aspiring noob.</p>\n  </div>\n  <hr>\n  <h3>Recent articles:</h3>\n  <ul>\n    ");
   stack1 = helpers.each.call(depth0, "post", "in", "controller", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n  </ul>  \n</div>\n</div>\n<div id=\"footer\" class=\"sixteen columns\">\n<hr />\n<p class=\"right\">&copy; Matt Merkes</p>\n</div>\n");
