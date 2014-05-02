@@ -1,6 +1,6 @@
 {
   "name": "noobjs",
-  "version": "0.5.0-3",
+  "version": "0.5.0-6",
   "author": {
     "name": "Matt Merkes",
     "email": "matt.merkes@gmail.com"
@@ -21,7 +21,7 @@
   },
   "contributors": [],
   "dependencies": {
-    "express": "*",
+    "express": "3.4.8",
     "path": "*",
     "mongoose": "*"
   },
