@@ -2,6 +2,10 @@
 var application_root = __dirname,
     express = require( 'express' ), //Web framework
     path = require( 'path' ), //Utilities for dealing with file paths
+    bodyParser = require('body-parser'),
+    serveStatic = require('serve-static'),
+    errorHandler = require('errorhandler'),
+    morgan = require('morgan'),
     mongoose = require( 'mongoose' ); //MongoDB integration
 
 mongoose.connect( 'mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASS + '@' + process.env.MONGO_URL + '/' + process.env.MONGO_DB );
@@ -24,23 +28,17 @@ var PostModel = mongoose.model( 'Post', Post );
 //Create server
 var app = express();
 
-// Configure server
-app.configure( function() {
-    //parses request body and populates request.body
-    app.use( express.bodyParser() );
+//parses request body and populates request.body
+app.use( bodyParser.json() );
 
-    //checks request.body for HTTP method overrides
-    app.use( express.methodOverride() );
+//Where to serve static content
+app.use( serveStatic( path.join( application_root) ) );
 
-    //perform route lookup based on url and HTTP method
-    app.use( app.router );
+//Show all errors in development
+app.use( errorHandler() );
 
-    //Where to serve static content
-    app.use( express.static( path.join( application_root) ) );
-
-    //Show all errors in development
-    app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
+// Log activity
+app.use( morgan('combined') );
 
 //Start server
 var port = 3000;
